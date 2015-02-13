@@ -1,0 +1,24 @@
+namespace System.Windows.Forms
+{
+    using System;
+    using System.Reactive;
+    using System.Reactive.Linq;
+
+    /// <summary>
+    /// Extension methods providing IObservable wrappers for the events on VScrollBar.
+    /// </summary>
+    public static class ObservableVScrollBarEvents
+    {
+        /// <summary>
+        /// Returns an observable sequence wrapping the RightToLeftChanged event on the VScrollBar instance.
+        /// </summary>
+        /// <param name="instance">The VScrollBar instance to observe.</param>
+        /// <returns>An observable sequence wrapping the RightToLeftChanged event on the VScrollBar instance.</returns>
+        public static IObservable<EventPattern<EventArgs>> RightToLeftChangedObservable(this VScrollBar instance)
+        {
+            return Observable.FromEventPattern<EventHandler, EventArgs>(
+                handler => instance.RightToLeftChanged += handler,
+                handler => instance.RightToLeftChanged -= handler);
+        }
+    }
+}
