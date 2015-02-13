@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ObservableWinFormsEvents</id>
+    <version>$version$</version>
+    <authors>Matthew King</authors>
+    <owners>Matthew King</owners>
+    <description>A set of extension methods on the System.Windows.Forms namespace that convert standard .NET event handlers into observable sequences.</description>
+    <dependencies>
+      <dependency id="Rx-Core" version="2.2.2" />
+      <dependency id="Rx-Interfaces" version="2.2.2" />
+      <dependency id="Rx-Linq" version="2.2.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="temporary\ObservableWinFormsEvents.dll" target="lib/net40-client" />
+    <file src="temporary\ObservableWinFormsEvents.xml" target="lib/net40-client" />
+  </files>
+</package>
