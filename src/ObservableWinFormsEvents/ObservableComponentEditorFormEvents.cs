@@ -1,6 +1,7 @@
 namespace System.Windows.Forms
 {
     using System;
+    using System.ComponentModel;
     using System.Reactive;
     using System.Reactive.Linq;
     using System.Windows.Forms.Design;
@@ -8,6 +9,7 @@ namespace System.Windows.Forms
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on ComponentEditorForm.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableComponentEditorFormEvents
     {
         /// <summary>

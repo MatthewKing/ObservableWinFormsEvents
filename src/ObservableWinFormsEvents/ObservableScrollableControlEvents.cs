@@ -1,11 +1,13 @@
 namespace System.Windows.Forms
 {
+    using System.ComponentModel;
     using System.Reactive;
     using System.Reactive.Linq;
 
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on ScrollableControl.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableScrollableControlEvents
     {
         /// <summary>

@@ -8,6 +8,7 @@ namespace System.Windows.Forms
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on ToolStripControlHost.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableToolStripControlHostEvents
     {
         /// <summary>

@@ -8,6 +8,7 @@ namespace System.Windows.Forms
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on Form.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableFormEvents
     {
         /// <summary>

@@ -7,6 +7,7 @@ namespace System.Windows.Forms
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on BindingContext.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableBindingContextEvents
     {
         /// <summary>

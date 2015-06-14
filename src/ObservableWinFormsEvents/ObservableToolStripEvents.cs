@@ -1,12 +1,14 @@
 namespace System.Windows.Forms
 {
     using System;
+    using System.ComponentModel;
     using System.Reactive;
     using System.Reactive.Linq;
 
     /// <summary>
     /// Extension methods providing IObservable wrappers for the events on ToolStrip.
     /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ObservableToolStripEvents
     {
         /// <summary>
