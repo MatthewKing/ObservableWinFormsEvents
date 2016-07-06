@@ -1,7 +1,7 @@
 var target = Argument("target", "Finalize");
 var configuration = Argument("configuration", "Release");
-var workingDir = Directory("./temp").Path.MakeAbsolute(Context.Environment);
-var outputDir = Directory("./output").Path.MakeAbsolute(Context.Environment);
+var workingDir = Directory("./temp");
+var outputDir = Directory("./output");
 var solutionFile = GetFiles("../*.sln").Single();
 
 Task("Clean")
@@ -25,7 +25,7 @@ Task("Build")
         MSBuild(solutionFile, settings =>
         {
             settings.SetConfiguration(configuration);
-            settings.WithProperty("OutputPath", workingDir.FullPath);
+            settings.WithProperty("OutputPath", MakeAbsolute(workingDir.Path).FullPath);
         });
     });
 
@@ -39,12 +39,12 @@ Task("NuGetPack")
         var nuspec = File("./ObservableWinFormsEvents.nuspec");
 
         var settings = new NuGetPackSettings();
-        settings.OutputDirectory = outputDir.FullPath;
+        settings.OutputDirectory = outputDir;
         settings.Version = assemblyInfo.AssemblyInformationalVersion;
         settings.Files = new[]
         {
-            new NuSpecContent() { Source = workingDir.CombineWithFilePath("ObservableWinFormsEvents.dll").FullPath, Target = "lib/net40" },
-            new NuSpecContent() { Source = workingDir.CombineWithFilePath("ObservableWinFormsEvents.xml").FullPath, Target = "lib/net40" },
+            new NuSpecContent() { Source = workingDir + File("./ObservableWinFormsEvents.dll"), Target = "lib/net45" },
+            new NuSpecContent() { Source = workingDir + File("./ObservableWinFormsEvents.xml"), Target = "lib/net45" },
         };
 
         NuGetPack(nuspec, settings);
