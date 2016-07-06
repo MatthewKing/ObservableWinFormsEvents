@@ -13,9 +13,9 @@
     <copyright>Copyright 2015 Matthew King. All rights reserved.</copyright>
     <tags>rx reactive observable winforms events</tags>
     <dependencies>
-      <dependency id="Rx-Core" version="2.2.2" />
-      <dependency id="Rx-Interfaces" version="2.2.2" />
-      <dependency id="Rx-Linq" version="2.2.2" />
+      <dependency id="System.Reactive.Core" version="3.0.0" />
+      <dependency id="System.Reactive.Interfaces" version="3.0.0" />
+      <dependency id="System.Reactive.Linq" version="3.0.0" />
     </dependencies>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Windows.Forms" />
