@@ -1,26 +1,5 @@
-# build folders
+.vs/
+.vscode/
 bin/
 obj/
-
-# build results
-debug/
-release/
-build/tools/
-build/temp/
-build/output/
-
-# user-specific files
-*.suo
-*.user
-*.sln.docstates
-
-# ncrunch
-*.crunchsolution*
-*.ncrunchsolution*
-*.ncrunchproject*
-
-# nuget
-packages/
-
-# other
-*.cache
+*.csproj.user
