@@ -1,6 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>ObservableWinFormsEvents</PackageId>
+    <Title>ObservableWinFormsEvents</Title>
+    <Summary>IObservable wrappers for WinForms events</Summary>
+    <Description>A set of extension methods on the System.Windows.Forms namespace that convert standard .NET event handlers into observable sequences.</Description>
+    <Authors>Matthew King</Authors>
+    <Copyright>Copyright Matthew King.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/MatthewKing/ObservableWinFormsEvents</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MatthewKing/ObservableWinFormsEvents</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>rx;reactive;observable;winforms;events</PackageTags>
+    <VersionPrefix>3.0.0</VersionPrefix>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <TargetFrameworks>net472;net5.0-windows</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
