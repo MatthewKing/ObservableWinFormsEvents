@@ -83,6 +83,7 @@ namespace System.Windows.Forms
                 handler => instance.BindingContextChanged -= handler);
         }
 
+#if NETFRAMEWORK
         /// <summary>
         /// Returns an observable sequence wrapping the ContextMenuChanged event on the AxHost instance.
         /// </summary>
@@ -94,6 +95,7 @@ namespace System.Windows.Forms
                 handler => instance.ContextMenuChanged += handler,
                 handler => instance.ContextMenuChanged -= handler);
         }
+#endif
 
         /// <summary>
         /// Returns an observable sequence wrapping the CursorChanged event on the AxHost instance.

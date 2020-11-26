@@ -1,3 +1,5 @@
+#if NETFRAMEWORK
+
 namespace System.Windows.Forms
 {
     using System.ComponentModel;
@@ -23,3 +25,5 @@ namespace System.Windows.Forms
         }
     }
 }
+
+#endif

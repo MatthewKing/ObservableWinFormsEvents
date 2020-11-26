@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObservableWinFormsEvents", "src\ObservableWinFormsEvents\ObservableWinFormsEvents.csproj", "{CAA59C41-B4AB-43B5-ACE3-D616A7060DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObservableWinFormsEvents", "src\ObservableWinFormsEvents\ObservableWinFormsEvents.csproj", "{5731C47F-28EB-45B5-B54B-EE5B23048E48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CAA59C41-B4AB-43B5-ACE3-D616A7060DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAA59C41-B4AB-43B5-ACE3-D616A7060DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAA59C41-B4AB-43B5-ACE3-D616A7060DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAA59C41-B4AB-43B5-ACE3-D616A7060DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5731C47F-28EB-45B5-B54B-EE5B23048E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5731C47F-28EB-45B5-B54B-EE5B23048E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5731C47F-28EB-45B5-B54B-EE5B23048E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5731C47F-28EB-45B5-B54B-EE5B23048E48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {661BBF01-6A72-483D-AD4D-DFECC01C71DE}
 	EndGlobalSection
 EndGlobal

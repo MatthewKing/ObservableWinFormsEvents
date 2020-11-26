@@ -59,6 +59,7 @@ namespace System.Windows.Forms
                 handler => instance.ChangeUICues -= handler);
         }
 
+#if NETFRAMEWORK
         /// <summary>
         /// Returns an observable sequence wrapping the ContextMenuChanged event on the ToolStripDropDown instance.
         /// </summary>
@@ -70,6 +71,7 @@ namespace System.Windows.Forms
                 handler => instance.ContextMenuChanged += handler,
                 handler => instance.ContextMenuChanged -= handler);
         }
+#endif
 
         /// <summary>
         /// Returns an observable sequence wrapping the ContextMenuStripChanged event on the ToolStripDropDown instance.

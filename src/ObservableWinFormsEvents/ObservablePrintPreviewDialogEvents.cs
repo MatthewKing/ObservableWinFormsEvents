@@ -299,6 +299,7 @@ namespace System.Windows.Forms
                 handler => instance.FontChanged -= handler);
         }
 
+#if NETFRAMEWORK
         /// <summary>
         /// Returns an observable sequence wrapping the ContextMenuChanged event on the PrintPreviewDialog instance.
         /// </summary>
@@ -310,5 +311,6 @@ namespace System.Windows.Forms
                 handler => instance.ContextMenuChanged += handler,
                 handler => instance.ContextMenuChanged -= handler);
         }
+#endif
     }
 }

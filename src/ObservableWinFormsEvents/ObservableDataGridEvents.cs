@@ -1,3 +1,5 @@
+#if NETFRAMEWORK
+
 namespace System.Windows.Forms
 {
     using System;
@@ -228,3 +230,5 @@ namespace System.Windows.Forms
         }
     }
 }
+
+#endif
