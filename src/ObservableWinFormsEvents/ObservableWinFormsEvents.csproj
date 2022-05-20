@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net472;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net472;net5.0-windows;net6.0-windows</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -29,7 +29,7 @@
     <Using Remove="System.Net.Http" Condition=" $(TargetFramework) == 'net472' " />
   </ItemGroup>
 
-  <PropertyGroup Condition=" $(TargetFramework) == 'net5.0-windows' ">
+  <PropertyGroup Condition=" $(TargetFramework) == 'net5.0-windows' or $(TargetFramework) == 'net6.0-windows' ">
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
