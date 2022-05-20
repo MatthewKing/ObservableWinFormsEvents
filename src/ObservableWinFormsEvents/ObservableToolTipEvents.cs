@@ -1,37 +1,36 @@
-namespace System.Windows.Forms
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
+
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on ToolTip.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableToolTipEvents
 {
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+    /// <summary>
+    /// Returns an observable sequence wrapping the Draw event on the ToolTip instance.
+    /// </summary>
+    /// <param name="instance">The ToolTip instance to observe.</param>
+    /// <returns>An observable sequence wrapping the Draw event on the ToolTip instance.</returns>
+    public static IObservable<EventPattern<DrawToolTipEventArgs>> DrawObservable(this ToolTip instance)
+    {
+        return Observable.FromEventPattern<DrawToolTipEventHandler, DrawToolTipEventArgs>(
+            handler => instance.Draw += handler,
+            handler => instance.Draw -= handler);
+    }
 
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on ToolTip.
+    /// Returns an observable sequence wrapping the Popup event on the ToolTip instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableToolTipEvents
+    /// <param name="instance">The ToolTip instance to observe.</param>
+    /// <returns>An observable sequence wrapping the Popup event on the ToolTip instance.</returns>
+    public static IObservable<EventPattern<PopupEventArgs>> PopupObservable(this ToolTip instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the Draw event on the ToolTip instance.
-        /// </summary>
-        /// <param name="instance">The ToolTip instance to observe.</param>
-        /// <returns>An observable sequence wrapping the Draw event on the ToolTip instance.</returns>
-        public static IObservable<EventPattern<DrawToolTipEventArgs>> DrawObservable(this ToolTip instance)
-        {
-            return Observable.FromEventPattern<DrawToolTipEventHandler, DrawToolTipEventArgs>(
-                handler => instance.Draw += handler,
-                handler => instance.Draw -= handler);
-        }
-
-        /// <summary>
-        /// Returns an observable sequence wrapping the Popup event on the ToolTip instance.
-        /// </summary>
-        /// <param name="instance">The ToolTip instance to observe.</param>
-        /// <returns>An observable sequence wrapping the Popup event on the ToolTip instance.</returns>
-        public static IObservable<EventPattern<PopupEventArgs>> PopupObservable(this ToolTip instance)
-        {
-            return Observable.FromEventPattern<PopupEventHandler, PopupEventArgs>(
-                handler => instance.Popup += handler,
-                handler => instance.Popup -= handler);
-        }
+        return Observable.FromEventPattern<PopupEventHandler, PopupEventArgs>(
+            handler => instance.Popup += handler,
+            handler => instance.Popup -= handler);
     }
 }

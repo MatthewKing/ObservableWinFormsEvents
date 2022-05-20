@@ -1,25 +1,24 @@
-namespace System.Windows.Forms
-{
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
 
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on DataGridViewRowCollection.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableDataGridViewRowCollectionEvents
+{
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on DataGridViewRowCollection.
+    /// Returns an observable sequence wrapping the CollectionChanged event on the DataGridViewRowCollection instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableDataGridViewRowCollectionEvents
+    /// <param name="instance">The DataGridViewRowCollection instance to observe.</param>
+    /// <returns>An observable sequence wrapping the CollectionChanged event on the DataGridViewRowCollection instance.</returns>
+    public static IObservable<EventPattern<CollectionChangeEventArgs>> CollectionChangedObservable(this DataGridViewRowCollection instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the CollectionChanged event on the DataGridViewRowCollection instance.
-        /// </summary>
-        /// <param name="instance">The DataGridViewRowCollection instance to observe.</param>
-        /// <returns>An observable sequence wrapping the CollectionChanged event on the DataGridViewRowCollection instance.</returns>
-        public static IObservable<EventPattern<CollectionChangeEventArgs>> CollectionChangedObservable(this DataGridViewRowCollection instance)
-        {
-            return Observable.FromEventPattern<CollectionChangeEventHandler, CollectionChangeEventArgs>(
-                handler => instance.CollectionChanged += handler,
-                handler => instance.CollectionChanged -= handler);
-        }
+        return Observable.FromEventPattern<CollectionChangeEventHandler, CollectionChangeEventArgs>(
+            handler => instance.CollectionChanged += handler,
+            handler => instance.CollectionChanged -= handler);
     }
 }

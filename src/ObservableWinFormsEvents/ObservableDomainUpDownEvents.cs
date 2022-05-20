@@ -1,38 +1,37 @@
-namespace System.Windows.Forms
+using System;
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
+
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on DomainUpDown.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableDomainUpDownEvents
 {
-    using System;
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+    /// <summary>
+    /// Returns an observable sequence wrapping the PaddingChanged event on the DomainUpDown instance.
+    /// </summary>
+    /// <param name="instance">The DomainUpDown instance to observe.</param>
+    /// <returns>An observable sequence wrapping the PaddingChanged event on the DomainUpDown instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> PaddingChangedObservable(this DomainUpDown instance)
+    {
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.PaddingChanged += handler,
+            handler => instance.PaddingChanged -= handler);
+    }
 
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on DomainUpDown.
+    /// Returns an observable sequence wrapping the SelectedItemChanged event on the DomainUpDown instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableDomainUpDownEvents
+    /// <param name="instance">The DomainUpDown instance to observe.</param>
+    /// <returns>An observable sequence wrapping the SelectedItemChanged event on the DomainUpDown instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> SelectedItemChangedObservable(this DomainUpDown instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the PaddingChanged event on the DomainUpDown instance.
-        /// </summary>
-        /// <param name="instance">The DomainUpDown instance to observe.</param>
-        /// <returns>An observable sequence wrapping the PaddingChanged event on the DomainUpDown instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> PaddingChangedObservable(this DomainUpDown instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.PaddingChanged += handler,
-                handler => instance.PaddingChanged -= handler);
-        }
-
-        /// <summary>
-        /// Returns an observable sequence wrapping the SelectedItemChanged event on the DomainUpDown instance.
-        /// </summary>
-        /// <param name="instance">The DomainUpDown instance to observe.</param>
-        /// <returns>An observable sequence wrapping the SelectedItemChanged event on the DomainUpDown instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> SelectedItemChangedObservable(this DomainUpDown instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.SelectedItemChanged += handler,
-                handler => instance.SelectedItemChanged -= handler);
-        }
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.SelectedItemChanged += handler,
+            handler => instance.SelectedItemChanged -= handler);
     }
 }

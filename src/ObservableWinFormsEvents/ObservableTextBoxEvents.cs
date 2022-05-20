@@ -1,26 +1,25 @@
-namespace System.Windows.Forms
-{
-    using System;
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+using System;
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
 
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on TextBox.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableTextBoxEvents
+{
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on TextBox.
+    /// Returns an observable sequence wrapping the TextAlignChanged event on the TextBox instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableTextBoxEvents
+    /// <param name="instance">The TextBox instance to observe.</param>
+    /// <returns>An observable sequence wrapping the TextAlignChanged event on the TextBox instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> TextAlignChangedObservable(this TextBox instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the TextAlignChanged event on the TextBox instance.
-        /// </summary>
-        /// <param name="instance">The TextBox instance to observe.</param>
-        /// <returns>An observable sequence wrapping the TextAlignChanged event on the TextBox instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> TextAlignChangedObservable(this TextBox instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.TextAlignChanged += handler,
-                handler => instance.TextAlignChanged -= handler);
-        }
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.TextAlignChanged += handler,
+            handler => instance.TextAlignChanged -= handler);
     }
 }

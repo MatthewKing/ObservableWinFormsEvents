@@ -1,38 +1,37 @@
-namespace System.Windows.Forms
+using System;
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
+
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on ToolStripMenuItem.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableToolStripMenuItemEvents
 {
-    using System;
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+    /// <summary>
+    /// Returns an observable sequence wrapping the CheckedChanged event on the ToolStripMenuItem instance.
+    /// </summary>
+    /// <param name="instance">The ToolStripMenuItem instance to observe.</param>
+    /// <returns>An observable sequence wrapping the CheckedChanged event on the ToolStripMenuItem instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> CheckedChangedObservable(this ToolStripMenuItem instance)
+    {
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.CheckedChanged += handler,
+            handler => instance.CheckedChanged -= handler);
+    }
 
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on ToolStripMenuItem.
+    /// Returns an observable sequence wrapping the CheckStateChanged event on the ToolStripMenuItem instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableToolStripMenuItemEvents
+    /// <param name="instance">The ToolStripMenuItem instance to observe.</param>
+    /// <returns>An observable sequence wrapping the CheckStateChanged event on the ToolStripMenuItem instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> CheckStateChangedObservable(this ToolStripMenuItem instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the CheckedChanged event on the ToolStripMenuItem instance.
-        /// </summary>
-        /// <param name="instance">The ToolStripMenuItem instance to observe.</param>
-        /// <returns>An observable sequence wrapping the CheckedChanged event on the ToolStripMenuItem instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> CheckedChangedObservable(this ToolStripMenuItem instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.CheckedChanged += handler,
-                handler => instance.CheckedChanged -= handler);
-        }
-
-        /// <summary>
-        /// Returns an observable sequence wrapping the CheckStateChanged event on the ToolStripMenuItem instance.
-        /// </summary>
-        /// <param name="instance">The ToolStripMenuItem instance to observe.</param>
-        /// <returns>An observable sequence wrapping the CheckStateChanged event on the ToolStripMenuItem instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> CheckStateChangedObservable(this ToolStripMenuItem instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.CheckStateChanged += handler,
-                handler => instance.CheckStateChanged -= handler);
-        }
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.CheckStateChanged += handler,
+            handler => instance.CheckStateChanged -= handler);
     }
 }

@@ -1,26 +1,25 @@
-namespace System.Windows.Forms
-{
-    using System;
-    using System.ComponentModel;
-    using System.Reactive;
-    using System.Reactive.Linq;
+using System;
+using System.ComponentModel;
+using System.Reactive;
+using System.Reactive.Linq;
 
+namespace System.Windows.Forms;
+
+/// <summary>
+/// Extension methods providing IObservable wrappers for the events on ErrorProvider.
+/// </summary>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public static class ObservableErrorProviderEvents
+{
     /// <summary>
-    /// Extension methods providing IObservable wrappers for the events on ErrorProvider.
+    /// Returns an observable sequence wrapping the RightToLeftChanged event on the ErrorProvider instance.
     /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ObservableErrorProviderEvents
+    /// <param name="instance">The ErrorProvider instance to observe.</param>
+    /// <returns>An observable sequence wrapping the RightToLeftChanged event on the ErrorProvider instance.</returns>
+    public static IObservable<EventPattern<EventArgs>> RightToLeftChangedObservable(this ErrorProvider instance)
     {
-        /// <summary>
-        /// Returns an observable sequence wrapping the RightToLeftChanged event on the ErrorProvider instance.
-        /// </summary>
-        /// <param name="instance">The ErrorProvider instance to observe.</param>
-        /// <returns>An observable sequence wrapping the RightToLeftChanged event on the ErrorProvider instance.</returns>
-        public static IObservable<EventPattern<EventArgs>> RightToLeftChangedObservable(this ErrorProvider instance)
-        {
-            return Observable.FromEventPattern<EventHandler, EventArgs>(
-                handler => instance.RightToLeftChanged += handler,
-                handler => instance.RightToLeftChanged -= handler);
-        }
+        return Observable.FromEventPattern<EventHandler, EventArgs>(
+            handler => instance.RightToLeftChanged += handler,
+            handler => instance.RightToLeftChanged -= handler);
     }
 }
