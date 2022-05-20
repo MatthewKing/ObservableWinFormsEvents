@@ -18,8 +18,16 @@
   <PropertyGroup>
     <TargetFrameworks>net472;net5.0-windows</TargetFrameworks>
     <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="System.Reactive" />
+    <Using Include="System.Reactive.Linq" />
+    <Using Include="System.ComponentModel" />
+    <Using Remove="System.Net.Http" Condition=" $(TargetFramework) == 'net472' " />
+  </ItemGroup>
 
   <PropertyGroup Condition=" $(TargetFramework) == 'net5.0-windows' ">
     <UseWindowsForms>true</UseWindowsForms>
