@@ -17,6 +17,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net472;net5.0-windows</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
